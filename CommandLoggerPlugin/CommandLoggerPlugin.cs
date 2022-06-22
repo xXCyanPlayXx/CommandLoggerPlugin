@@ -37,6 +37,10 @@ namespace CommandLoggerPlugin
                 .WithField("Player Message:", message)
                 .WithField("blue Hammed", Translate("webhook", player.IsAdmin.ToString(), player.SteamName))
                 .WithField("Player ID", Translate("webhook", player.Id.Length.ToString(), player.Id))
+                .WithField("Player Steam GruopName", Translate("webhook" , player.SteamGroupName() ,player.CSteamID))
+                .WithField("Player Ping/reputation", Translate("webhook" , player.Ping.ToString() ,player.Reputation))
+               
+                
                 .WithColor(color)
                 .Finalize();
                 DiscordWebhookService.PostMessage(Configuration.Instance.CommandLoggerWebHook, CommandLoggerPlugin);
